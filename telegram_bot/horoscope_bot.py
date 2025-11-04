@@ -12,7 +12,7 @@ def start(message):
     btn1 = types.KeyboardButton("👋 Привітатись")
     btn2 = types.KeyboardButton("🔮 Почати гороскоп")  
     markup.add(btn1, btn2)
-    with open('Гороскоп.png.', 'rb') as photo:
+    with open('Гороскоп.png', 'rb') as photo:
         karina.send_photo(message.chat.id, photo, caption="")
         karina.send_message(message.chat.id, text="Привіт, {0.first_name}! Я твій гороскопний помічник✨. Тут ти можеш дізнатись свій гороскоп на сьогодні, а також почати дослідження свого знака зодіаку🌟".format(message.from_user), reply_markup=markup)
 
@@ -177,3 +177,4 @@ def get_tomorrow_horoscope(sign):
     return tomorrow_horoscope.get(sign, "Не знайдено поради для цього знака.")
 
 karina.polling(none_stop=True)
+
